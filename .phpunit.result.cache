@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Habib\\Translator\\Tests\\TranslatorTest::testValidColors":5,"Habib\\Translator\\Tests\\TranslatorTest::testInvalidColor":8},"times":{"Habib\\Translator\\Tests\\TranslatorTest::testAdd":0.011,"Habib\\Translator\\Tests\\TranslatorTest::testValidColors":0.015,"Habib\\Translator\\Tests\\TranslatorTest::testInvalidColor":0}}

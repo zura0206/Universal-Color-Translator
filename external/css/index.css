@@ -1,0 +1,42 @@
+body{
+    background-color: #eff0e6;
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: normal;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+}
+.col {
+    max-width: 500px;
+    border: 6px solid #517a44;
+    padding: 50px;
+    border-radius: 20px;
+    
+}
+.output {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 1.2em;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.output.success {
+    background-color: #d4edda;
+    font-weight: 400;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.output.error {
+    background-color: #f8d7da;
+    font-weight: 400;
+    padding: 10px;
+    border-radius: 5px;
+}
