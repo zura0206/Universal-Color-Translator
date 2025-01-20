@@ -13,7 +13,6 @@ A web-based tool to convert color names into their corresponding hex codes. It p
 - [Project Structure](#project-structure)
 - [Usage Instructions](#usage-instructions)
 - [Contribution](#contribution)
-- [License](#license)
 
 ---
 
