@@ -94,6 +94,7 @@ To run the unit tests:
 2. Run tests using the command:
    ```bash
    vendor/bin/phpunit tests/ or 
+   php vendor/bin/phpunit tests/TranslatorTest.php
    php ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests\TranslatorTest.php
    ```
 
