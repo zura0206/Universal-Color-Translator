@@ -110,15 +110,15 @@ The tests cover:
 ```
 Universal-Color-Translator/
 |── admin/                  # Admin panel files
+    |── admin.php              # Admin interface
 |   |── colors.json            # Color storage
 |── external/css/           # Stylesheets
+|── src                     #source files
+    |── translator.php         # Translator class
 |── tests/                  # PHPUnit test cases
-|── index.php               # Main user interface
-|── admin.php               # Admin interface
-|── translator.php          # Translator class
-|── translatortest.php       # Unit tests
+    |── translatortest.php     # Unit tests
+|── index.php               # Main user interface  
 |── README.md               # Documentation
-```
 
 ---
 
