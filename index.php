@@ -74,7 +74,7 @@ if (isset($_GET['color'])) {
 
                 setTimeout(function() {
                     $('#output').fadeOut();
-                }, 5000); // 5 seconds timer
+                }, 20000); // 20 seconds timer
             }).fail(function() {
                 alert('Something went wrong!');
             });
