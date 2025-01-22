@@ -1,17 +1,25 @@
 <?php
-    include "./colors.php";
-
-    function getHexColor($colorName) {
-        global $colors;
-        return $colors[strtolower(trim($colorName))] ?? 'Color not found!';
+// Function to load colors from the JSON file
+function loadColors() {
+    $colorsFile = 'admin/colors.json';  // Path to your JSON file
+    if (!file_exists($colorsFile)) {
+        return [];
     }
+    return json_decode(file_get_contents($colorsFile), true);
+}
 
-    // Check if it's an AJAX request
-    if (isset($_GET['color'])) {
-        $hexCode = getHexColor($_GET['color']);
-        echo $hexCode; // Return only the hex code (or error message)
-        exit;
-    }
+// Function to get the hex code for the requested color
+function getHexColor($colorName) {
+    $colors = loadColors();  // Load the colors dynamically from the JSON file
+    return $colors[strtolower(trim($colorName))] ?? 'Color not found!';
+}
+
+// Check if it's an AJAX request
+if (isset($_GET['color'])) {
+    $hexCode = getHexColor($_GET['color']);
+    echo $hexCode;  // Return only the hex code (or error message)
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +31,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="external/css/index.css?v=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
-   
 </head>
 <body>
 

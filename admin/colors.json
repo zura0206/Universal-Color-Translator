@@ -1,8 +1,13 @@
 {
-    "blue": "#222222",
-    "black": "#FF0000",
-    "red": "#124124",
-    "zura": "#000000",
-    "sheesh": "#111111",
-    "white": "#000000"
+    "red": "#FF0000",
+    "blue": "#0000FF",
+    "green": "#008000",
+    "yellow": "#FFFF00",
+    "purple": "#800080",
+    "black": "#000000",
+    "white": "#FFFFFF",
+    "zura": "#124124",
+    "pink": "#111111",
+    "yellow-green": "#111111",
+    "faizer": "#ffff22"
 }
