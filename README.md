@@ -80,30 +80,134 @@ The Universal Color Translator is designed with simplicity and scalability in mi
 - **Testing:**
   - PHPUnit
 
----
+---# 🛠️ Testing Guide
 
-## 🛠️ Testing Guide
+## Project Structure for Testing
 
-To run the unit tests:
+To ensure organized and maintainable testing, follow this structure:
 
-1. Install PHPUnit (if not already installed):
+```
+project-root/
+│-- src/
+│   └── Translator.php        # Main Translator class
+│-- tests/
+│   ├── AdminTranslatorTest.php # Tests using JSON (dynamic)
+│   ├── TranslatorTest.php      # Static tests
+│   └── bootstrap.php           # Optional PHPUnit bootstrap file
+│-- colors.php                 # Color definitions (static version)
+│-- composer.json               # Dependency management
+│-- phpunit.xml                 # PHPUnit configuration
+```
+
+## Setting Up PHPUnit
+
+1. Install PHPUnit via Composer (if not already installed):
    ```bash
    composer require --dev phpunit/phpunit
    ```
 
-2. Run tests using the command:
-   ```bash
-   vendor/bin/phpunit tests/ or 
-   php vendor/bin/phpunit tests/TranslatorTest.php
-   php ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests\TranslatorTest.php
+2. Configure `composer.json` to autoload the test files:
+
+   ```json
+   "autoload": {
+       "psr-4": {
+           "Habib\\Translator\\": "src/"
+       }
+   },
+   "autoload-dev": {
+       "psr-4": {
+           "Habib\\Translator\\Tests\\": "tests/"
+       }
+   }
    ```
 
-The tests cover:
-- Valid color retrieval
-- Invalid color handling
-- JSON data integrity
+   Then, update Composer to apply changes:
+
+   ```bash
+   composer dump-autoload
+   ```
+
+3. Create a `phpunit.xml` configuration file in the project root:
+
+   ```xml
+   <phpunit bootstrap="vendor/autoload.php">
+       <testsuites>
+           <testsuite name="Translator Tests">
+               <directory>./tests</directory>
+           </testsuite>
+       </testsuites>
+   </phpunit>
+   ```
 
 ---
+
+## Running Tests
+
+Run the tests using the following commands:
+
+- Run all tests in the `tests` directory:
+   ```bash
+   vendor/bin/phpunit tests/
+   ```
+
+- Run a specific test file, e.g., `TranslatorTest.php`:
+   ```bash
+   php vendor/bin/phpunit tests/TranslatorTest.php
+   ```
+
+- Run with detailed output:
+   ```bash
+   php vendor/bin/phpunit --testdox
+   ```
+
+---
+
+## Test Coverage
+
+The current test suite covers the following cases:
+
+### 1. **Static Color Tests (`TranslatorTest.php`)**
+   - ✅ Valid color retrieval (e.g., `red → #FF0000`)
+   - ❌ Invalid color handling (`invalidColor → "Color not found!"`)
+   - 🆕 Case-insensitive lookup (`RED → #FF0000`)
+   - 🆕 Trimming spaces (`"  red  " → #FF0000`)
+   - ❌ Empty input (`"" → "Color not found!"`)
+
+### 2. **Dynamic Color Tests (`AdminTranslatorTest.php`)**
+   - ✅ Checks colors dynamically from JSON or database
+   - ❌ Invalid color handling (`invalidColor → "Color not found!"`)
+   - ❌ Empty input validation
+
+Each test prints out useful messages such as:
+
+```
+Testing color: red with expected hex code: #FF0000
+Testing invalid color: invalidColor
+Testing empty color input: ''
+```
+
+---
+
+## Adding New Tests
+
+1. Create a new test file in the `tests/` directory:
+   ```php
+   <?php
+   use PHPUnit\Framework\TestCase;
+   use Habib\Translator\Translator;
+
+   class NewFeatureTest extends TestCase {
+       public function testNewFunctionality() {
+           $translator = new Translator();
+           $this->assertEquals('#123456', $translator->getHexCode('newcolor'));
+       }
+   }
+   ```
+
+2. Run the test using:
+   ```bash
+   php vendor/bin/phpunit tests/NewFeatureTest.php
+   ```
 
 ## 🛀 Project Structure
 
@@ -115,10 +219,15 @@ Universal-Color-Translator/
 |── external/css/           # Stylesheets
 |── src                     #source files
     |── translator.php         # Translator class
+    |── Admintranslator.php    # Translator class
 |── tests/                  # PHPUnit test cases
     |── translatortest.php     # Unit tests
+    ├── AdminTranslatorTest.php # Tests using JSON (dynamic)
 |── index.php               # Main user interface  
+|── colors.php              # colors  storage in a php file
+|── composer.json           # path adjustments
 |── README.md               # Documentation
+|── phpunit.xml             # xml file
 
 ---
 

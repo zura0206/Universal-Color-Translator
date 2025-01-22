@@ -2,19 +2,14 @@
 
 namespace Habib\Translator;
 
-class Translator
-{
-    private $colors = [];
+class Translator {
+    private $colors;
 
-    public function __construct()
-    {
-        // Load colors from a JSON file (or database)
-        $this->colors = json_decode(file_get_contents('./admin/colors.json'), true);
+    public function __construct() {
+        $this->colors = include 'colors.php'; 
     }
 
-    // Function to get the hex code of a color name
-    public function getHexColor($colorName)
-    {
+    public function getHexCode($colorName) {
         return $this->colors[strtolower(trim($colorName))] ?? 'Color not found!';
     }
 }

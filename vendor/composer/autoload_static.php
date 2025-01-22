@@ -19,6 +19,7 @@ class ComposerStaticInitfbee484fbcb98ba45566f17e8eb69e9b
         'H' => 
         array (
             'Habib\\Translator\\' => 17,
+            'Habib\\AdminTranslator\\' => 22,
         ),
         'D' => 
         array (
@@ -32,6 +33,10 @@ class ComposerStaticInitfbee484fbcb98ba45566f17e8eb69e9b
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
         'Habib\\Translator\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Habib\\AdminTranslator\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

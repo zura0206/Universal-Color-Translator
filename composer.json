@@ -1,7 +1,8 @@
 {
     "autoload": {
         "psr-4": {
-            "Habib\\Translator\\": "src/"
+            "Habib\\Translator\\": "src/",
+            "Habib\\AdminTranslator\\": "src/"
         }
     },
     "require-dev": {
